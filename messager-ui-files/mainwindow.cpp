@@ -6,8 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->login_username->setPlaceholderText("Username");
-    ui->login_password->setPlaceholderText("Password");
+    ui->login_username->setPlaceholderText("Nom d'utilisateur");
+    ui->login_password->setPlaceholderText("Mot de passe");
+    ui->register_username->setPlaceholderText("Nom d'utilisateur");
+    ui->register_password->setPlaceholderText("Mot de passe");
 }
 
 MainWindow::~MainWindow()
