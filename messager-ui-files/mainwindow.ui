@@ -192,7 +192,11 @@
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QLineEdit" name="login_password"/>
+         <widget class="QLineEdit" name="login_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1" colspan="2">
          <widget class="QLabel" name="login_title">
@@ -202,7 +206,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Connection</string>
+           <string>Connecter</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -259,7 +263,11 @@
          </spacer>
         </item>
         <item row="3" column="6">
-         <widget class="QLineEdit" name="register_password"/>
+         <widget class="QLineEdit" name="register_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
         </item>
         <item row="0" column="8">
          <spacer name="horizontalSpacer_7">

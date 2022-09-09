@@ -147,6 +147,7 @@ public:
 
         login_password = new QLineEdit(Login);
         login_password->setObjectName(QString::fromUtf8("login_password"));
+        login_password->setEchoMode(QLineEdit::Password);
 
         gridLayout_2->addWidget(login_password, 4, 1, 1, 1);
 
@@ -185,6 +186,7 @@ public:
 
         register_password = new QLineEdit(Register);
         register_password->setObjectName(QString::fromUtf8("register_password"));
+        register_password->setEchoMode(QLineEdit::Password);
 
         gridLayout_5->addWidget(register_password, 3, 6, 1, 1);
 
@@ -243,7 +245,7 @@ public:
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "Connecter", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "Enregistrer", nullptr));
         login_submit->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
-        login_title->setText(QCoreApplication::translate("MainWindow", "Connection", nullptr));
+        login_title->setText(QCoreApplication::translate("MainWindow", "Connecter", nullptr));
         used_as_spacer_1->setText(QString());
         pushButton->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
         register_title->setText(QCoreApplication::translate("MainWindow", " Enregistrer ", nullptr));

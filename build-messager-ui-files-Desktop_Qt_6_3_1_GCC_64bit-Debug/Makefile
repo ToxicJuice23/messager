@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../messager-ui-files -I. -I/opt/Qt/6.3.1/gcc_64/include -I/opt/Qt/6.3.1/gcc_64/include/QtWidgets -I/opt/Qt/6.3.1/gcc_64/include/QtGui -I/opt/Qt/6.3.1/gcc_64/include/QtCore -I. -I. -I/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../messager-ui-files -I. -I/opt/Qt/6.3.1/gcc_64/include -I/opt/Qt/6.3.1/gcc_64/include/QtWidgets -I/opt/Qt/6.3.1/gcc_64/include/QtGui -I/opt/Qt/6.3.1/gcc_64/include/QtSql -I/opt/Qt/6.3.1/gcc_64/include/QtCore -I. -I. -I/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt/6.3.1/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = messager-ui-files1.0.0
 DISTDIR = /home/jujur/coding/c++/messager/build-messager-ui-files-Desktop_Qt_6_3_1_GCC_64bit-Debug/.tmp/messager-ui-files1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt/6.3.1/gcc_64/lib -Wl,-rpath-link,/opt/Qt/6.3.1/gcc_64/lib
-LIBS          = $(SUBLIBS) /opt/Qt/6.3.1/gcc_64/lib/libQt6Widgets.so /opt/Qt/6.3.1/gcc_64/lib/libQt6Gui.so /opt/Qt/6.3.1/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) /opt/Qt/6.3.1/gcc_64/lib/libQt6Widgets.so /opt/Qt/6.3.1/gcc_64/lib/libQt6Gui.so /opt/Qt/6.3.1/gcc_64/lib/libQt6Sql.so /opt/Qt/6.3.1/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -183,6 +183,7 @@ DIST          = /opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_post.prf \
+		../messager-ui-files/.qmake.stash \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -340,6 +341,7 @@ Makefile: ../messager-ui-files/messager-ui-files.pro /opt/Qt/6.3.1/gcc_64/mkspec
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -364,6 +366,7 @@ Makefile: ../messager-ui-files/messager-ui-files.pro /opt/Qt/6.3.1/gcc_64/mkspec
 		../messager-ui-files/messager.qrc \
 		/opt/Qt/6.3.1/gcc_64/lib/libQt6Widgets.prl \
 		/opt/Qt/6.3.1/gcc_64/lib/libQt6Gui.prl \
+		/opt/Qt/6.3.1/gcc_64/lib/libQt6Sql.prl \
 		/opt/Qt/6.3.1/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile ../messager-ui-files/messager-ui-files.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_pre.prf:
@@ -490,6 +493,7 @@ Makefile: ../messager-ui-files/messager-ui-files.pro /opt/Qt/6.3.1/gcc_64/mkspec
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt/6.3.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -514,6 +518,7 @@ Makefile: ../messager-ui-files/messager-ui-files.pro /opt/Qt/6.3.1/gcc_64/mkspec
 ../messager-ui-files/messager.qrc:
 /opt/Qt/6.3.1/gcc_64/lib/libQt6Widgets.prl:
 /opt/Qt/6.3.1/gcc_64/lib/libQt6Gui.prl:
+/opt/Qt/6.3.1/gcc_64/lib/libQt6Sql.prl:
 /opt/Qt/6.3.1/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../messager-ui-files/messager-ui-files.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -710,7 +715,7 @@ moc_mainwindow.cpp: ../messager-ui-files/mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		moc_predefs.h \
 		/opt/Qt/6.3.1/gcc_64/libexec/moc
-	/opt/Qt/6.3.1/gcc_64/libexec/moc $(DEFINES) --include /home/jujur/coding/c++/messager/build-messager-ui-files-Desktop_Qt_6_3_1_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++ -I/home/jujur/coding/c++/messager/messager-ui-files -I/opt/Qt/6.3.1/gcc_64/include -I/opt/Qt/6.3.1/gcc_64/include/QtWidgets -I/opt/Qt/6.3.1/gcc_64/include/QtGui -I/opt/Qt/6.3.1/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../messager-ui-files/mainwindow.h -o moc_mainwindow.cpp
+	/opt/Qt/6.3.1/gcc_64/libexec/moc $(DEFINES) --include /home/jujur/coding/c++/messager/build-messager-ui-files-Desktop_Qt_6_3_1_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++ -I/home/jujur/coding/c++/messager/messager-ui-files -I/opt/Qt/6.3.1/gcc_64/include -I/opt/Qt/6.3.1/gcc_64/include/QtWidgets -I/opt/Qt/6.3.1/gcc_64/include/QtGui -I/opt/Qt/6.3.1/gcc_64/include/QtSql -I/opt/Qt/6.3.1/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../messager-ui-files/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -888,7 +893,12 @@ main.o: ../messager-ui-files/main.cpp ../messager-ui-files/mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication_platform.h
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlDatabase \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqldatabase.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlglobal.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsql-config.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlexports.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../messager-ui-files/main.cpp
 
 mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindow.h \
@@ -1026,7 +1036,53 @@ mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindo
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/QTransform \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qnativeinterface.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qtabwidget.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QFrame \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QGridLayout \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qpicture.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QSpacerItem \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QStackedWidget \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../messager-ui-files/mainwindow.cpp
 
 qrc_messager.o: qrc_messager.cpp 
