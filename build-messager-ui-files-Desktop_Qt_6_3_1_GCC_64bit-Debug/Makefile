@@ -204,7 +204,8 @@ DIST          = /opt/Qt/6.3.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt/6.3.1/gcc_64/mkspecs/features/lex.prf \
-		../messager-ui-files/messager-ui-files.pro ../messager-ui-files/mainwindow.h ../messager-ui-files/main.cpp \
+		../messager-ui-files/messager-ui-files.pro ../messager-ui-files/encoder.h \
+		../messager-ui-files/mainwindow.h ../messager-ui-files/main.cpp \
 		../messager-ui-files/mainwindow.cpp
 QMAKE_TARGET  = messager-ui-files
 DESTDIR       = 
@@ -536,8 +537,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../messager-ui-files/messager.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt/6.3.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../messager-ui-files/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../messager-ui-files/main.cpp ../messager-ui-files/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../messager-ui-files/encoder.h ../messager-ui-files/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../messager-ui-files/encoder.cpp ../messager-ui-files/main.cpp ../messager-ui-files/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../messager-ui-files/mainwindow.ui $(DISTDIR)/
 
 
@@ -713,6 +714,16 @@ moc_mainwindow.cpp: ../messager-ui-files/mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/QTransform \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qnativeinterface.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlDatabase \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqldatabase.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlglobal.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsql-config.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlexports.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlQuery \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqlquery.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qdialog.h \
 		moc_predefs.h \
 		/opt/Qt/6.3.1/gcc_64/libexec/moc
 	/opt/Qt/6.3.1/gcc_64/libexec/moc $(DEFINES) --include /home/jujur/coding/c++/messager/build-messager-ui-files-Desktop_Qt_6_3_1_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt/6.3.1/gcc_64/mkspecs/linux-g++ -I/home/jujur/coding/c++/messager/messager-ui-files -I/opt/Qt/6.3.1/gcc_64/include -I/opt/Qt/6.3.1/gcc_64/include/QtWidgets -I/opt/Qt/6.3.1/gcc_64/include/QtGui -I/opt/Qt/6.3.1/gcc_64/include/QtSql -I/opt/Qt/6.3.1/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../messager-ui-files/mainwindow.h -o moc_mainwindow.cpp
@@ -873,6 +884,16 @@ main.o: ../messager-ui-files/main.cpp ../messager-ui-files/mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/QTransform \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qnativeinterface.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlDatabase \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqldatabase.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlglobal.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsql-config.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlexports.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlQuery \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqlquery.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qdialog.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qcoreapplication.h \
@@ -893,12 +914,7 @@ main.o: ../messager-ui-files/main.cpp ../messager-ui-files/mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlDatabase \
-		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqldatabase.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlglobal.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsql-config.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlexports.h
+		/opt/Qt/6.3.1/gcc_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../messager-ui-files/main.cpp
 
 mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindow.h \
@@ -1036,6 +1052,16 @@ mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindo
 		/opt/Qt/6.3.1/gcc_64/include/QtGui/QTransform \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/qnativeinterface.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlDatabase \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqldatabase.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlglobal.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsql-config.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qtsqlexports.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/QSqlQuery \
+		/opt/Qt/6.3.1/gcc_64/include/QtSql/qsqlquery.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qdialog.h \
 		ui_mainwindow.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtCore/QVariant \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QApplication \
@@ -1082,7 +1108,9 @@ mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindo
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QSpacerItem \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QStackedWidget \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QWidget
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QWidget \
+		../messager-ui-files/encoder.cpp \
+		../messager-ui-files/encoder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../messager-ui-files/mainwindow.cpp
 
 qrc_messager.o: qrc_messager.cpp 

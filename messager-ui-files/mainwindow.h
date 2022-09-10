@@ -6,6 +6,8 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -20,7 +22,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     bool logged_in = false;
+    QSqlDatabase db;
     QSqlDatabase database;
+    string current_username = "";
+    void open_homepage();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -31,7 +36,7 @@ private slots:
 
     void on_login_submit_clicked();
 
-    void on_pushButton_clicked();
+    void on_register_submit_clicked();
 
 private:
     Ui::MainWindow *ui;

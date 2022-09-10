@@ -17,7 +17,10 @@
    <property name="styleSheet">
     <string notr="true">background-color: 7bae37</string>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -30,10 +33,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
+    <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
        <string notr="true">background-color: #7bae37; text-decoration: underline;</string>
@@ -60,16 +60,6 @@
        <property name="spacing">
         <number>0</number>
        </property>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="styleSheet">
-          <string notr="true">border: 0px transparent; padding: 5px;</string>
-         </property>
-         <property name="text">
-          <string>Page D'acceuil</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QPushButton" name="pushButton_2">
          <property name="styleSheet">
@@ -77,6 +67,16 @@
          </property>
          <property name="text">
           <string>Connecter</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="styleSheet">
+          <string notr="true">border: 0px transparent; padding: 5px;</string>
+         </property>
+         <property name="text">
+          <string>Page D'acceuil</string>
          </property>
         </widget>
        </item>
@@ -106,10 +106,10 @@
       </layout>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item>
      <widget class="QStackedWidget" name="StackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Login">
        <property name="styleSheet">
@@ -216,9 +216,7 @@
         <item row="2" column="1">
          <widget class="QLabel" name="used_as_spacer_1">
           <property name="text">
-           <string>
-
-</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -243,7 +241,7 @@
          </spacer>
         </item>
         <item row="3" column="7">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="register_submit">
           <property name="text">
            <string>Soumettre</string>
           </property>
@@ -300,9 +298,7 @@
         <item row="1" column="6">
          <widget class="QLabel" name="used_as_spacer_2">
           <property name="text">
-           <string>
-
-</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -338,7 +334,86 @@
        </layout>
       </widget>
       <widget class="QWidget" name="Homepage">
-       <layout class="QGridLayout" name="gridLayout_4"/>
+       <property name="styleSheet">
+        <string notr="true">background-color: #74bd20; text-align: left;</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="styleSheet">
+           <string notr="true">background-color: #74bd20; text-align: left; border: 0;</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="conversations">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>400</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">padding: 5px;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <widget class="QScrollArea" name="scrollArea_2">
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>398</width>
+             <height>569</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

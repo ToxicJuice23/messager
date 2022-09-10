@@ -17,8 +17,10 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,11 +29,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
     QFrame *frame;
     QGridLayout *gridLayout_3;
-    QPushButton *pushButton_4;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_4;
     QPushButton *pushButton_3;
     QSpacerItem *horizontalSpacer_5;
     QStackedWidget *StackedWidget;
@@ -50,7 +52,7 @@ public:
     QWidget *Register;
     QGridLayout *gridLayout_5;
     QSpacerItem *horizontalSpacer_6;
-    QPushButton *pushButton;
+    QPushButton *register_submit;
     QSpacerItem *horizontalSpacer_9;
     QLineEdit *register_password;
     QSpacerItem *horizontalSpacer_7;
@@ -61,6 +63,11 @@ public:
     QSpacerItem *verticalSpacer_2;
     QWidget *Homepage;
     QGridLayout *gridLayout_4;
+    QScrollArea *scrollArea;
+    QWidget *conversations;
+    QVBoxLayout *verticalLayout_2;
+    QScrollArea *scrollArea_2;
+    QWidget *scrollAreaWidgetContents;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -70,10 +77,10 @@ public:
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setStyleSheet(QString::fromUtf8("background-color: 7bae37"));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setSpacing(0);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setSpacing(0);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setStyleSheet(QString::fromUtf8("background-color: #7bae37; text-decoration: underline;"));
@@ -83,17 +90,17 @@ public:
         gridLayout_3->setSpacing(0);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton_4 = new QPushButton(frame);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setStyleSheet(QString::fromUtf8("border: 0px transparent; padding: 5px;"));
-
-        gridLayout_3->addWidget(pushButton_4, 0, 2, 1, 1);
-
         pushButton_2 = new QPushButton(frame);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setStyleSheet(QString::fromUtf8("border: 0px transparent; padding: 5px;"));
 
         gridLayout_3->addWidget(pushButton_2, 0, 0, 1, 1);
+
+        pushButton_4 = new QPushButton(frame);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setStyleSheet(QString::fromUtf8("border: 0px transparent; padding: 5px;"));
+
+        gridLayout_3->addWidget(pushButton_4, 0, 2, 1, 1);
 
         pushButton_3 = new QPushButton(frame);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
@@ -106,7 +113,7 @@ public:
         gridLayout_3->addItem(horizontalSpacer_5, 0, 3, 1, 1);
 
 
-        gridLayout->addWidget(frame, 0, 0, 1, 1);
+        verticalLayout->addWidget(frame);
 
         StackedWidget = new QStackedWidget(centralwidget);
         StackedWidget->setObjectName(QString::fromUtf8("StackedWidget"));
@@ -175,10 +182,10 @@ public:
 
         gridLayout_5->addItem(horizontalSpacer_6, 0, 4, 1, 1);
 
-        pushButton = new QPushButton(Register);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        register_submit = new QPushButton(Register);
+        register_submit->setObjectName(QString::fromUtf8("register_submit"));
 
-        gridLayout_5->addWidget(pushButton, 3, 7, 1, 1);
+        gridLayout_5->addWidget(register_submit, 3, 7, 1, 1);
 
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -222,17 +229,47 @@ public:
         StackedWidget->addWidget(Register);
         Homepage = new QWidget();
         Homepage->setObjectName(QString::fromUtf8("Homepage"));
+        Homepage->setStyleSheet(QString::fromUtf8("background-color: #74bd20; text-align: left;"));
         gridLayout_4 = new QGridLayout(Homepage);
+        gridLayout_4->setSpacing(0);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        gridLayout_4->setContentsMargins(0, 0, 0, 0);
+        scrollArea = new QScrollArea(Homepage);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setStyleSheet(QString::fromUtf8("background-color: #74bd20; text-align: left; border: 0;"));
+        scrollArea->setWidgetResizable(true);
+        conversations = new QWidget();
+        conversations->setObjectName(QString::fromUtf8("conversations"));
+        conversations->setGeometry(QRect(0, 0, 400, 571));
+        conversations->setStyleSheet(QString::fromUtf8("padding: 5px;"));
+        verticalLayout_2 = new QVBoxLayout(conversations);
+        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        scrollArea->setWidget(conversations);
+
+        gridLayout_4->addWidget(scrollArea, 0, 0, 1, 1);
+
+        scrollArea_2 = new QScrollArea(Homepage);
+        scrollArea_2->setObjectName(QString::fromUtf8("scrollArea_2"));
+        scrollArea_2->setStyleSheet(QString::fromUtf8("background-color: white;"));
+        scrollArea_2->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 569));
+        scrollArea_2->setWidget(scrollAreaWidgetContents);
+
+        gridLayout_4->addWidget(scrollArea_2, 0, 1, 2, 1);
+
         StackedWidget->addWidget(Homepage);
 
-        gridLayout->addWidget(StackedWidget, 1, 0, 1, 1);
+        verticalLayout->addWidget(StackedWidget);
 
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
 
-        StackedWidget->setCurrentIndex(1);
+        StackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -241,13 +278,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "Page D'acceuil", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "Connecter", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "Page D'acceuil", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "Enregistrer", nullptr));
         login_submit->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
         login_title->setText(QCoreApplication::translate("MainWindow", "Connecter", nullptr));
         used_as_spacer_1->setText(QString());
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
+        register_submit->setText(QCoreApplication::translate("MainWindow", "Soumettre", nullptr));
         register_title->setText(QCoreApplication::translate("MainWindow", " Enregistrer ", nullptr));
         used_as_spacer_2->setText(QString());
     } // retranslateUi

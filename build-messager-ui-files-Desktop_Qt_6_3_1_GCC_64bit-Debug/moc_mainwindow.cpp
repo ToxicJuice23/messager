@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[14];
-    char stringdata0[130];
+    char stringdata0[135];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -35,12 +35,13 @@ QT_MOC_LITERAL(35, 0), // ""
 QT_MOC_LITERAL(36, 23), // "on_pushButton_3_clicked"
 QT_MOC_LITERAL(60, 23), // "on_pushButton_4_clicked"
 QT_MOC_LITERAL(84, 23), // "on_login_submit_clicked"
-QT_MOC_LITERAL(108, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(108, 26) // "on_register_submit_clicked"
 
     },
     "MainWindow\0on_pushButton_2_clicked\0\0"
     "on_pushButton_3_clicked\0on_pushButton_4_clicked\0"
-    "on_login_submit_clicked\0on_pushButton_clicked"
+    "on_login_submit_clicked\0"
+    "on_register_submit_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -84,7 +85,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_pushButton_3_clicked(); break;
         case 2: _t->on_pushButton_4_clicked(); break;
         case 3: _t->on_login_submit_clicked(); break;
-        case 4: _t->on_pushButton_clicked(); break;
+        case 4: _t->on_register_submit_clicked(); break;
         default: ;
         }
     }
