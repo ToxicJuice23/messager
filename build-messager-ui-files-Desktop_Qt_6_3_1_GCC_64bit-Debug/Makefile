@@ -567,7 +567,8 @@ compiler_rcc_make_all: qrc_messager.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_messager.cpp
 qrc_messager.cpp: ../messager-ui-files/messager.qrc \
-		/opt/Qt/6.3.1/gcc_64/libexec/rcc
+		/opt/Qt/6.3.1/gcc_64/libexec/rcc \
+		../messager-ui-files/Messager.png
 	/opt/Qt/6.3.1/gcc_64/libexec/rcc -name messager ../messager-ui-files/messager.qrc -o qrc_messager.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1105,12 +1106,17 @@ mainwindow.o: ../messager-ui-files/mainwindow.cpp ../messager-ui-files/mainwindo
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QPushButton \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qpushbutton.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QScrollArea \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qscrollarea.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QSpacerItem \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QStackedWidget \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QVBoxLayout \
 		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QWidget \
 		../messager-ui-files/encoder.cpp \
-		../messager-ui-files/encoder.h
+		../messager-ui-files/encoder.h \
+		/opt/Qt/6.3.1/gcc_64/include/QtWidgets/QSizePolicy
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../messager-ui-files/mainwindow.cpp
 
 qrc_messager.o: qrc_messager.cpp 

@@ -29,3 +29,5 @@ RESOURCES += \
     messager.qrc
 
 QT += sql
+
+RC_ICONS += Messager.png
