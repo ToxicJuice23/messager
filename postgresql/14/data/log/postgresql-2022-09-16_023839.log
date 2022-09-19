@@ -1,0 +1,6 @@
+2022-09-16 02:38:39.372 EDT [5252] LOG:  starting PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-09-16 02:38:39.373 EDT [5252] LOG:  listening on IPv6 address "::", port 5432
+2022-09-16 02:38:39.373 EDT [5252] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2022-09-16 02:38:40.896 EDT [4928] LOG:  database system was shut down at 2022-09-16 02:28:10 EDT
+2022-09-16 02:38:41.324 EDT [5252] LOG:  database system is ready to accept connections
+2022-09-17 10:30:49.496 EDT [5612] LOG:  using stale statistics instead of current ones because stats collector is not responding
